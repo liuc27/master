@@ -109,4 +109,5 @@ ion-content{
 
 .bar-stable .button,.bar.bar-stable .title{
     color: #fff;
+    font-weight: bold;
 }

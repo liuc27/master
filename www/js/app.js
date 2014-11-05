@@ -71,6 +71,16 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
         }
       })
 
+      .state('tab.dash-detail', {
+        url: '/dash-detail/:dashId',
+        views: {
+          'tab-friends': {
+            templateUrl: 'templates/tab-dash-detail.html',
+            controller: 'FriendDetailCtrl'
+          }
+        }
+      })
+
     .state('tab.account', {
       url: '/account',
       views: {
