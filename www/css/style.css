@@ -81,9 +81,6 @@ ion-content{
     background-color: cornflowerblue;
 }
 
-.tabs{
-    background-color: cornflowerblue;
-}
 
 .buttons.left-buttons{
     width: 40px;
@@ -108,4 +105,8 @@ ion-content{
     left: 0;
     position: fixed;
 
+}
+
+.bar-stable .button,.bar.bar-stable .title{
+    color: #fff;
 }

@@ -62,30 +62,10 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
 
 
       .state('tab.friend-detail', {
-        url: '/friend',
+        url: '/friend/:friendId',
         views: {
           'tab-friends': {
             templateUrl: 'templates/friend-detail.html',
-            controller: 'FriendDetailCtrl'
-          }
-        }
-      })
-
-      .state('tab.friend-detail.1', {
-        url: '/1',
-        views: {
-          'tab-friends': {
-            templateUrl: 'templates/friend-detail0.html',
-            controller: 'FriendDetailCtrl'
-          }
-        }
-      })
-
-      .state('tab.friend-detail.0', {
-        url: '/0',
-        views: {
-          'tab-friends': {
-            templateUrl: 'templates/friend-detail1.html',
             controller: 'FriendDetailCtrl'
           }
         }
