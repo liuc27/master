@@ -1,6 +1,6 @@
 angular.module('starter.controllers', [])
 
-.controller('DashCtrl', function($scope) {
+.controller('CouponCtrl', function($scope) {
 })
 
 .controller('FriendsCtrl', function($scope, Friends) {
@@ -10,6 +10,10 @@ angular.module('starter.controllers', [])
 .controller('FriendDetailCtrl', function($scope, $stateParams, Friends) {
   $scope.friend = Friends.get($stateParams.friendId);
 })
+
+    .controller('CouponDetailCtrl', function($scope, $stateParams, Friends) {
+        $scope.coupon = Friends.fetch($stateParams.couponId);
+    })
 
 .controller('AccountCtrl', function($scope) {
 })

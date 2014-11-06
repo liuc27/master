@@ -34,6 +34,10 @@ angular.module('starter.services', [])
       // Simple index lookup
       return friends[friendId];
     },
+    fetch: function(dashId) {
+      // Simple index lookup
+      return items[dashId];
+    },
     allItems: function(){
       return items;
     }
