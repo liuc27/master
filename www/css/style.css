@@ -92,7 +92,12 @@ ion-content{
     background-color: dodgerblue;
 }
 
-.item{
+.borderRadius5{
+    background-color: #f4ffff;
+    border-radius: 5px;
+}
+
+.borderRadius{
     background-color: #f4ffff;
     border-radius: 10px;
 }
@@ -114,4 +119,17 @@ ion-content{
 
 .pink{
     background-color: pink;
+}
+
+.addToCart{
+    position: fixed;
+    float: left;
+    font-size: 24px;
+    margin: 3px;
+    top: 40px;
+    right: 16px;
+    width: 115px;
+    height: 74px;
+    color: red;
+    font-weight: bold;
 }

@@ -48,29 +48,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
       }
     })
 
-
-
-    .state('tab.friends', {
-      url: '/friends',
-      views: {
-        'tab-friends': {
-          templateUrl: 'templates/tab-friends.html',
-          controller: 'FriendsCtrl'
-        }
-      }
-    })
-
-
-      .state('tab.friend-detail', {
-        url: '/friend/:friendId',
-        views: {
-          'tab-friends': {
-            templateUrl: 'templates/friend-detail.html',
-            controller: 'FriendDetailCtrl'
-          }
-        }
-      })
-
       .state('tab.coupon-detail', {
         url: '/coupon-detail/:couponId',
         views: {
@@ -81,10 +58,33 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
         }
       })
 
-      .state('tab.cate-detail', {
-        url: '/cate-detail/:couponId',
+    .state('tab.types', {
+      url: '/types',
+      views: {
+        'tab-types': {
+          templateUrl: 'templates/tab-types.html',
+          controller: 'typesCtrl'
+        }
+      }
+    })
+
+
+      .state('tab.tab-types-detail', {
+        url: '/type/:typeId',
         views: {
-          'tab-friends': {
+          'tab-types': {
+            templateUrl: 'templates/tab-types-detail.html',
+            controller: 'typeDetailCtrl'
+          }
+        }
+      })
+
+
+
+      .state('tab.types-detail-coupon', {
+        url: '/types-detail-coupon/:couponId',
+        views: {
+          'tab-types': {
             templateUrl: 'templates/tab-coupon-detail.html',
             controller: 'CouponDetailCtrl'
           }
@@ -96,7 +96,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
       views: {
         'tab-account': {
           templateUrl: 'templates/tab-account.html',
-          controller: 'AccountCtrl'
+          controller: 'CouponDetailCtrl'
         }
       }
     });
