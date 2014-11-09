@@ -121,6 +121,9 @@ ion-content{
     background-color: pink;
 }
 
+.bar-stable .button.button-clear{
+    color: #ffffff;
+}
 .addToCart{
     position: fixed;
     float: left;

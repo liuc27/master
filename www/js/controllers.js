@@ -30,9 +30,18 @@ angular.module('starter.controllers', [])
                     }
                 });
                 if(notExist) {
-                    $scope.checked.push($scope.coupon);
+
+                    if($scope.checked.push($scope.coupon))
+                    {
+                        console.log($scope.checked.length)
+                        console.log($scope.checked);
+                        console.log($scope.items);
+
+                        //$scope.items.splice($scope.checked[this.length-1],1);
+                        }
+
+
                     console.log( $scope.items);
-                    $scope.items.splice($scope.items[$stateParams.couponId],1);
                     //delete $scope.items[$scope.coupon.id];
                     console.log( $scope.items);
                 }
