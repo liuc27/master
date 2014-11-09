@@ -33,8 +33,9 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
     .state('tab', {
       url: "/tab",
       abstract: true,
-      templateUrl: "templates/tabs.html"
-    })
+      templateUrl: "templates/tabs.html",
+        controller: 'menuCtrl'
+      })
 
     // Each tab has its own nav history stack:
 
@@ -91,15 +92,25 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
         }
       })
 
-    .state('tab.account', {
-      url: '/account',
+    .state('tab.favoriteList', {
+      url: '/favoriteList',
       views: {
-        'tab-account': {
-          templateUrl: 'templates/tab-account.html',
+        'tab-favoriteList': {
+          templateUrl: 'templates/tab-favoriteList.html',
           controller: 'CouponDetailCtrl'
         }
       }
-    });
+    })
+
+      .state('tab.favoriteListCouponDetail', {
+        url: '/favoriteList/:favoriteId',
+        views: {
+          'tab-favoriteList': {
+            templateUrl: 'templates/tab-favoriteList-couponDetail.html',
+            controller: 'favoriteDetailCtrl'
+          }
+        }
+      });
 
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/tab/coupon');

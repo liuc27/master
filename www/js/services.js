@@ -42,7 +42,7 @@
     allItems: function(){
       return items;
     },
-    favorateList: function(){
+    favoriteList: function(){
       return checked;
     }
   }
