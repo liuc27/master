@@ -37,8 +37,8 @@ angular.module('starter.controllers', [])
                         console.log($scope.checked);
                         console.log($scope.items);
 
-                        //$scope.items.splice($scope.checked[this.length-1],1);
-                        }
+                        $scope.items.splice($stateParams.couponId,1);
+                    }
 
 
                     console.log( $scope.items);
