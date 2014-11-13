@@ -18,6 +18,20 @@ angular.module('starter.controllers', [])
         $scope.checked = types.favoriteList();
         $scope.favorites = "button icon-left ion-plus button-positive";
         $scope.favoritesText = "点击领取";
+
+        $scope.favoriteClass = function(){
+                var exist = false;
+                angular.forEach($scope.checked, function(value){
+                    if(value.id == $scope.coupon.id) {
+                        exist = true;
+                    }
+                });
+                if(exist) {
+                    $scope.favorites = "button icon-left ion-heart button-positive";
+                    $scope.favoritesText = "已经领取";
+                }
+            };
+
         $scope.changeClass = function(){
             if ($scope.favorites === "button icon-left ion-plus button-positive"){
                 $scope.favorites = "button icon-left ion-heart button-positive";
@@ -31,17 +45,8 @@ angular.module('starter.controllers', [])
                 });
                 if(notExist) {
 
-                    if($scope.checked.push($scope.coupon))
-                    {
-                        console.log($scope.checked.length)
-                        console.log($scope.checked);
-                        console.log($scope.items);
+                    $scope.checked.push($scope.coupon);
 
-                        $scope.items.splice($stateParams.couponId,1);
-                    }
-
-
-                    console.log( $scope.items);
                     //delete $scope.items[$scope.coupon.id];
                     console.log( $scope.items);
                 }
@@ -50,6 +55,7 @@ angular.module('starter.controllers', [])
             }
         };
     })
+
     .controller('menuCtrl', function($scope, $ionicSideMenuDelegate) {
     })
     .controller('favoriteListCtrl', function($scope) {
@@ -83,6 +89,7 @@ angular.module('starter.controllers', [])
     .controller('MyCtrl', function($scope, types) {
         // don't be scared by the image value, its just dataur
         $scope.value= 'coco strong';
+        $scope.checked = types.favoriteList();
 
         $scope.currentTime = new Date();
         $scope.items = types.allItems();

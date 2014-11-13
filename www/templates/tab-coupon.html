@@ -8,7 +8,7 @@
     <div  class = "product bordLine list" ng-repeat="item in items">
       <a href="#/tab/coupon-detail/{{item.id}}" class=" item item-thumbnail-left borderRadius5">
         <img class ="product_image" ng-src="{{ item.image }}">
-        <div class="category">吃</div>
+        <div class="category" ng-class="{'ion-heart' : checked.indexOf(item) > -1 }">{{item.category}}</div>
         <ul>
           <li class="productName">超级豪华全家桶</li>
           <li class="productDetail">Nine Inch   Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo voluptates vel necessitatibus quos nisi illo recusandae quisquam, sapiente facere omnis, quaerat quidem quis libero ea consequatur suscipit ipsum, minus doloribus!</li>

@@ -39,11 +39,11 @@ li{
 
 .category{
     float: right;
-    font-size: 24px;
+    font-size: 16px;
     margin: 3px;
     top: 0;
     right: 0;
-    color: red;
+    color: #FF69B4;
     font-weight: bold;
 }
 

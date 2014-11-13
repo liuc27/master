@@ -9,7 +9,7 @@
         <h2>Marty McFly+{{type.id}}</h2>
         <p>November 05, 1955</p>
         <div class="addToCart">
-            <button ng-class="favorites" ng-click = "changeClass()">{{favoritesText}}</button>
+            <button ng-class="favorites" ng-init = "favoriteClass()" ng-click = "changeClass()">{{favoritesText}}</button>
         </div>
 
     </div>

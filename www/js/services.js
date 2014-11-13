@@ -35,9 +35,9 @@
       // Simple index lookup
       return types[typeId];
     },
-    fetch: function(dashId) {
+    fetch: function(couponId) {
       // Simple index lookup
-      return items[dashId];
+      return items[couponId];
     },
     allItems: function(){
       return items;
