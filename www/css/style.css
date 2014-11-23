@@ -48,13 +48,14 @@ li{
 }
 
 
-.productDetail{
+.productIntroduction{
     line-height: 1.5em;
     height: 3em;
     overflow: hidden;
     padding: 0 20px 0 0;
     font-size: 14px;
     white-space:normal;
+    color: #FF69B4;
 }
 .productDate{
     text-align: center;
@@ -125,14 +126,20 @@ ion-content{
     color: #ffffff;
 }
 .addToCart{
-    position: fixed;
+    position: absolute;
     float: left;
     font-size: 24px;
     margin: 3px;
-    top: 40px;
+    top: 12px;
     right: 16px;
     width: 115px;
     height: 74px;
     color: red;
     font-weight: bold;
+}
+
+.list.card.pink{
+
+    margin-top: 0;
+    margin-bottom: 0;
 }

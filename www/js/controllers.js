@@ -20,17 +20,17 @@ angular.module('starter.controllers', [])
         $scope.favoritesText = "点击领取";
 
         $scope.favoriteClass = function(){
-                var exist = false;
-                angular.forEach($scope.checked, function(value){
-                    if(value.id == $scope.coupon.id) {
-                        exist = true;
-                    }
-                });
-                if(exist) {
-                    $scope.favorites = "button icon-left ion-heart button-positive";
-                    $scope.favoritesText = "已经领取";
+            var exist = false;
+            angular.forEach($scope.checked, function(value){
+                if(value.id == $scope.coupon.id) {
+                    exist = true;
                 }
-            };
+            });
+            if(exist) {
+                $scope.favorites = "button icon-left ion-heart button-positive";
+                $scope.favoritesText = "已经领取";
+            }
+        };
 
         $scope.changeClass = function(){
             if ($scope.favorites === "button icon-left ion-plus button-positive"){
@@ -44,13 +44,10 @@ angular.module('starter.controllers', [])
                     }
                 });
                 if(notExist) {
-
                     $scope.checked.push($scope.coupon);
-
                     //delete $scope.items[$scope.coupon.id];
                     console.log( $scope.items);
                 }
-
                 console.log( $scope.checked);
             }
         };
@@ -58,42 +55,39 @@ angular.module('starter.controllers', [])
 
     .controller('menuCtrl', function($scope, $ionicSideMenuDelegate) {
     })
+
     .controller('favoriteListCtrl', function($scope) {
     })
 
-    .controller('favoriteDetailCtrl', function($scope, $stateParams, types) {
+    .controller('favoriteDetailCtrl', function($scope, $stateParams, types, $http) {
+
         $scope.favoriteCoupon = types.fetch($stateParams.favoriteId);
         $scope.checked = types.favoriteList();
         $scope.favorites = "button icon-left ion-plus button-positive";
+        $scope.coupon = types.fetch($stateParams.favoriteId);
         $scope.favoritesText = "点击领取";
         $scope.changeClass = function(){
             if ($scope.favorites === "button icon-left ion-plus button-positive"){
                 $scope.favorites = "button icon-left ion-heart button-positive";
                 if ($scope.favoritesText === "点击领取")
                     $scope.favoritesText = "已经领取";
-                var notExist = true;
-                angular.forEach($scope.checked, function(value){
-                    if(value.id == $scope.coupon.id) {
-                        notExist = false;
-                    }
-                });
-                if(notExist) {
-                    $scope.checked.push($scope.coupon);
-                }
-                console.log( $scope.checked);
-                console.log( $scope.items);
             }
         };
     })
 
-    .controller('MyCtrl', function($scope, types) {
+    .controller('MyCtrl', function($scope, types, $http) {
         // don't be scared by the image value, its just dataur
+        $scope.doRefresh = function() {
+            $http.get("http://localhost:3000/api/posts").success(function(data) {
+                console.log(data)
+            })
+                .finally(function() {
+                    $scope.$broadcast('scroll.refreshComplete')
+                });
+        };
         $scope.value= 'coco strong';
         $scope.checked = types.favoriteList();
-
         $scope.currentTime = new Date();
         $scope.items = types.allItems();
-        $scope.$broadcast("scroll.refreshComplete");
-
 
     });
