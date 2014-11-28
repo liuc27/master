@@ -28,15 +28,41 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
   // Set up the various states which the app can be in.
   // Each state's controller can be found in controllers.js
   $stateProvider
-
     // setup an abstract state for the tabs directive
-    .state('tab', {
-      url: "/tab",
-      abstract: true,
-      templateUrl: "templates/tabs.html",
+      .state('tab', {
+        url: "/tab",
+        abstract: true,
+        templateUrl: "templates/tabs.html",
         controller: 'menuCtrl'
       })
 
+      .state('tab.register', {
+        url: '/register',
+        views: {
+          'tab-coupon': {
+            templateUrl: 'templates/tab-register.html',
+            controller: 'CouponCtrl'
+          }
+        }
+      })
+      .state('tab.login', {
+        url: '/login',
+        views: {
+          'tab-coupon': {
+            templateUrl: 'templates/tab-login.html',
+            controller: 'CouponCtrl'
+          }
+        }
+      })
+      .state('tab.setting', {
+        url: '/setting',
+        views: {
+          'tab-coupon': {
+            templateUrl: 'templates/tab-setting.html',
+            controller: 'CouponCtrl'
+          }
+        }
+      })
     // Each tab has its own nav history stack:
 
     .state('tab.coupon', {
