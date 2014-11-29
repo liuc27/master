@@ -9,7 +9,7 @@
     <div  class = "product bordLine list  borderRadius" ng-repeat="item in items | reverse | filter:type.category :strict">
       <a href="#/tab/types-detail-coupon/{{item.id}}" class=" item item-thumbnail-left  borderRadius">
         <img class ="product_image" ng-src="{{ item.image }}">
-        <div class="category">{{type.name}}</div>
+        <div class="category" ng-class="{'ion-heart' : checked.indexOf(item) > -1 }">{{item.name}}</div>
         <ul>
           <li class="productName"><b>{{item.productName}}</li>
           <li class="productIntroduction"><b>{{item.productIntroduction}}</li>

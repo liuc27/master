@@ -81,11 +81,13 @@ angular.module('starter.controllers', [])
             });
         };
     })
-    .controller('MyCtrl', function ($scope, types, $http) {
-        // don't be scared by the image value, its just dataur
+    .controller('MyCtrl', function ($scope, types, $http, localStorageService) {
+        // don't be scared by the image value, its just data
         $scope.doRefresh = function () {
             $http.get("http://localhost:3000/api/posts").success(function (data) {
-                console.log(data)
+                console.log(data+"is fine")
+                localStorageService.set("itemsData",data)
+                console.log(localStorageService.get("itemsData")+"is fine")
             })
                 .finally(function () {
                     $scope.$broadcast('scroll.refreshComplete')
