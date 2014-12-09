@@ -53,9 +53,6 @@ angular.module('starter.controllers', [])
         };
     })
 
-    .controller('menuCtrl', function ($scope, $ionicSideMenuDelegate) {
-    })
-
     .controller('favoriteListCtrl', function ($scope) {
     })
 
@@ -74,10 +71,19 @@ angular.module('starter.controllers', [])
             }
         };
     })
-    .controller('MenuCtrl', function ($scope, types, $http) {
+    .controller('MenuCtrl', function ($scope, types, $http, $ionicSideMenuDelegate, localStorageService, $location) {
         $scope.register = function (username,password) {
             $http.post("http://localhost:3000/api/user",{"username":username,"password":password}).success(function (data) {
-                console.log(data)
+                if(data==="already registered"){
+                    alert("用户名已经注册，请换用户名！");
+                }
+                else {
+                    alert("注册成功！")
+                    $location.path('#/tab/coupon')
+                    localStorageService.set("usernameDate",data)
+                    console.log(localStorageService.get("usernameDate")+"is nice")
+
+                }
             });
         };
     })
@@ -86,6 +92,7 @@ angular.module('starter.controllers', [])
         $scope.doRefresh = function () {
             $http.get("http://localhost:3000/api/posts").success(function (data) {
                 console.log(data+"is fine")
+                $scope.items = data;
                 localStorageService.set("itemsData",data)
                 console.log(localStorageService.get("itemsData")+"is fine")
             })

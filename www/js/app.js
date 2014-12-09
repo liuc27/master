@@ -38,7 +38,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
         url: "/tab",
         abstract: true,
         templateUrl: "templates/tabs.html",
-        controller: 'menuCtrl'
+        controller: 'MenuCtrl'
       })
 
       .state('tab.register', {
@@ -46,7 +46,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
         views: {
           'tab-coupon': {
             templateUrl: 'templates/tab-register.html',
-            controller: 'CouponCtrl'
+            controller: 'MenuCtrl'
           }
         }
       })

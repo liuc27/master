@@ -6,6 +6,14 @@ var bodyParser = require('body-parser')
 var Post = require('./models/post')
 var Type = require('./models/Types')
 var User = require('./models/user')
+var jwt = require('jwt-simple')
+var _ = require('lodash')
+
+
+var fs = require('fs')
+console.log(fs.readdirSync(__dirname))
+
+var secretKey = 'supersecretkey'
 
 var logger = require('morgan')
 app.use(bodyParser.json({
@@ -20,11 +28,25 @@ app.get('/api/posts', function (req, res, next) {
         }
         res.json(posts)
     })
+
 })
 
 app.post('/api/posts', function (req, res, next) {
+    var idNumber;
+    Post.find({}, function (err, posts) {
+        if (err) {
+            return next(err)
+        }
+        idNumber = posts.length
+        console.log(idNumber)
+        if (idNumber < 0) idNumber = 0
+        callback(idNumber, req, res)
+    })
+})
+
+var callback = function (idNumber, req, res) {
     var post = new Post({
-        id: req.body.id,
+        id: idNumber,
         name: req.body.name,
         category: req.body.category,
         productName: req.body.productName,
@@ -39,12 +61,7 @@ app.post('/api/posts', function (req, res, next) {
         }
         res.status(201).json(post)
     })
-})
-
-
-
-
-
+}
 
 
 
@@ -75,17 +92,53 @@ app.post('/api/types', function (req, res, next) {
 
 
 app.post('/api/user', function (req, res, next) {
-    var user = new User({
-        username: req.body.username,
-        password: req.body.password,
-        phonenumber: req.body.phonenumber
-    })
-    user.save(function (err, data) {
+    var name = req.body.username
+    var password = req.body.password
+    User.find({}, function (err, data) {
         if (err) {
             return next(err)
         }
-        res.status(201).json(data)
+        var userdata = findUsername(data, name)
+        if (!userdata) {
+            console.log("couldnt fame")
+            var token = jwt.encode({
+                username: name
+            }, secretKey)
+
+            var user = new User({
+                username: req.body.username,
+                password: req.body.password,
+                phonenumber: req.body.phonenumber
+            })
+            user.save(function (err, data) {
+                if (err) {
+                    return next(err)
+                }
+                console.log(data)
+                res.status(201).json(token)
+            })
+        } else res.send("already registered")
     })
+
+})
+
+
+function findUsername(users, user) {
+    return _.find(users, {
+        "username": user
+    })
+}
+
+function validUser(user, password) {
+    return user.password === password
+}
+
+app.get('/api/user', function (req, res, next) {
+    var token = req.headers['x-auth']
+    var user = jwt.decode(token, secretKey)
+
+    res.json(user)
+
 })
 
 
