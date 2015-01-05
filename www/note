@@ -7,3 +7,15 @@
 
 - 仅wifi下显示图片
 - 数据输入页面制作
+
+{
+     "name": "req.body.name",
+      "category": "req.body.category",
+        "productName": "req.body.productName",
+        "productIntroduction": "req.body.productIntroduction",
+        "productDetail": "req.body.productDetail",
+        "image": "D:\myApp\img\shoes.jpg"
+  }
+
+
+

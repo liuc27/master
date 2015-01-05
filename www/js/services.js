@@ -3,24 +3,25 @@
 /**
  * A simple example service that returns some data.
  */
-    .factory('types', function ($http,localStorageService) {
-        var ab=function (data) {
+    .factory('types', function ($rootScope,$http,localStorageService) {
+        var types,items,checked = [],i
+
+        $http.get("http://hahadz.com:3000/api/types").success(function (data) {
             console.log(data)
             localStorageService.set("typesData",data)
-        }
-        var cb = function (data) {
+            types=data
+        })
+        $http.get("http://hahadz.com:3000/api/posts").success(function (data) {
             console.log(data)
             localStorageService.set("itemsData",data)
-        }
-        $http.get("http://localhost:3000/api/types").success(ab)
-        $http.get("http://localhost:3000/api/posts").success(cb)
-        var types=localStorageService.get("typesData")
-        var items=localStorageService.get("itemsData")
+            items=data
+            $rootScope.$broadcast('myService:getUserConfigSuccess');
+            for(i=0;i<items.length;i++){
+                items[i].id=i;
+            }
+        })
 
-        console.log(types+"is good!")
-        console.log(items+"is good!")
 
-        var checked = [];
         return {
             all: function () {
                 return types;
@@ -30,6 +31,9 @@
             },
             fetch: function (couponId) {
                 return items[couponId];
+            },
+            fetchFavorite: function (couponId) {
+                return checked[couponId];
             },
             allItems: function () {
                 return items;

@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 
-<ion-view title="{{coupon.productName}}">
+<ion-view title="{{coupon.name}}">
             <ion-content has-header="true" padding="true">
     <div class="list card pink" >
 
     <div class="item item-avatar">
-        <h2>Marty McFly+{{type.id}}</h2>
-        <p>November 05, 1955</p>
+        <h2>{{coupon.productName}}</h2>
+        <p>{{coupon.timeLimit}}</p>
         <div class="addToCart">
             <button ng-class="favorites" ng-init = "favoriteClass()" ng-click = "changeClass()">{{favoritesText}}</button>
         </div>

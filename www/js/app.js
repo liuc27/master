@@ -23,7 +23,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
 .config(function (localStorageServiceProvider) {
   localStorageServiceProvider
       .setPrefix('myApp')
-      .setStorageType('localStorage')
       .setNotify(true, true)
 })
 .config(function($stateProvider, $urlRouterProvider) {
@@ -38,7 +37,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
         url: "/tab",
         abstract: true,
         templateUrl: "templates/tabs.html",
-        controller: 'menuCtrl'
+        controller: 'MenuCtrl'
       })
 
       .state('tab.register', {
@@ -46,7 +45,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
         views: {
           'tab-coupon': {
             templateUrl: 'templates/tab-register.html',
-            controller: 'CouponCtrl'
+            controller: 'MenuCtrl'
           }
         }
       })
@@ -128,7 +127,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
       views: {
         'tab-favoriteList': {
           templateUrl: 'templates/tab-favoriteList.html',
-          controller: 'CouponDetailCtrl'
+          controller: 'favoriteListCtrl'
         }
       }
     })

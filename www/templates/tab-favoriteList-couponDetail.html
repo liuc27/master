@@ -5,9 +5,8 @@
     <div class="list card pink" >
 
     <div class="item item-avatar">
-        <img ng-src="{{favoriteCoupon.image}}">
-        <h2>Marty McFly+{{type.id}}</h2>
-        <p>November 05, 1955</p>
+        <h2>{{favoriteCoupon.productName}}</h2>
+        <p>{{favoriteCoupon.timeLimit}}</p>
         <div class="addToCart">
             <button ng-class="favorites" ng-init = "changeClass()">{{favoritesText}}</button>
         </div>

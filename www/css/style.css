@@ -1,43 +1,45 @@
-body{
-    background-color:pink;
+body {
+    background-color: pink;
     overflow: scroll;
     margin: 0;
     padding: 0;
 }
 
-.bordLine{
+.bordLine {
     border-style: solid;
-    border-width: 5px  5px 0 5px ;
     border-color: pink;
+    padding: 5px 0px;
 }
 
-.item{
+.item {
     padding-top: 0;
     padding-right: 0;
     top: 0;
 
 }
-.item-thumbnail-left > img:first-child, .item-thumbnail-left .item-image, .item-thumbnail-left .item-content > img:first-child, .item-thumbnail-left .item-content .item-image{
+
+.item-thumbnail-left > img:first-child, .item-thumbnail-left .item-image, .item-thumbnail-left .item-content > img:first-child, .item-thumbnail-left .item-content .item-image {
     top: 0;
     padding-top: 0;
     padding-right: 0;
 }
-li{
+
+li {
     overflow: scroll;
 }
 
-.bordLineLast{
+.bordLineLast {
     border-bottom-width: 1px;
 }
 
-.productName{
+.productName {
     padding-top: 12px;
     font-size: 16px;
     font-weight: bold;
     color: #FF69B4;
 }
 
-.category{
+.category {
     float: right;
     font-size: 16px;
     margin: 3px;
@@ -47,63 +49,56 @@ li{
     font-weight: bold;
 }
 
-
-.productIntroduction{
+.productIntroduction {
     line-height: 1.5em;
     height: 3em;
     overflow: hidden;
     padding: 0 20px 0 0;
     font-size: 14px;
-    white-space:normal;
+    white-space: normal;
     color: #FF69B4;
 }
-.productDate{
+
+.productDate {
     text-align: center;
     font-size: 16px;
     font-weight: bold;
     color: #FF69B4;
 }
 
-.list{
+.list {
     margin-bottom: 0;
     overflow: scroll;
 
 }
 
-.product_image{
+.product_image {
     margin-top: 12px;
 }
 
-ion-content{
+ion-content {
     background-color: pink;
 }
 
-.bar.bar-stable{
+.bar.bar-stable {
     background-color: cornflowerblue;
 }
 
-
-.buttons.left-buttons{
+.buttons.left-buttons {
     width: 40px;
     height: 34px;
     display: block;
 }
 
-.button.icon.ion-gear-a{
-    background-color: dodgerblue;
+.borderRadius5 {
+    border-radius: 5px 5px 5px 5px;
 }
 
-.borderRadius5{
-    background-color: #f4ffff;
-    border-radius: 5px;
+.borderRadius {
+    border-radius: 5px 5px 5px 5px;
 }
 
-.borderRadius{
-    background-color: #f4ffff;
-    border-radius: 10px;
-}
-
-.highIndex{
+.highIndex {
     z-index: 100000;
     width: 100px;
     height: 100px;
@@ -113,38 +108,41 @@ ion-content{
 
 }
 
-.bar-stable .button,.bar.bar-stable .title{
+.bar-stable .button, .bar.bar-stable .title {
     color: #fff;
     font-weight: bold;
 }
 
-.pink{
+.pink {
     background-color: pink;
 }
 
-.bar-stable .button.button-clear{
-    color: #ffffff;
-}
-.addToCart{
-    position: absolute;
-    float: left;
-    font-size: 24px;
-    margin: 3px;
-    top: 12px;
-    right: 16px;
-    width: 115px;
-    height: 74px;
-    color: red;
-    font-weight: bold;
-}
-
-.list.card.pink{
+.list.card.pink {
 
     margin-top: 0;
     margin-bottom: 0;
 }
 
-div.item.item-avatar{
+div.item.item-avatar {
     padding-left: 20px;
     padding-top: 20px;
+}
+
+div.item.item-body {
+
+    padding: 1px;
+}
+div.scroll.padding {
+    background-color: pink;
+}
+
+.item-body h1, .item-body h2, .item-body h3, .item-body h4, .item-body h5, .item-body h6, .item-body p{
+    padding: 3px 3px;
+margin:0;
+}
+.addToCart {
+    width: 130px;
+    position: absolute;
+    top: 20px;
+    right: 0px;
 }
