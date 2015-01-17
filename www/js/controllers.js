@@ -75,6 +75,7 @@ console.log($scope.checked)
         $scope.theChecked = [];
         $scope.favorites = "button icon-left ion-plus button-positive";
         $scope.favoritesText = "点击领取";
+
         var flag;
         if (localStorageService.get("checkedData")) {
 
@@ -90,12 +91,14 @@ console.log($scope.checked)
 
         angular.forEach( $scope.checked,function(value,key) {
             console.log(key)
+            console.log(value.id)
             console.log($scope.items[key])
             if($scope.items[value.id]){
-                $scope.theChecked.push($scope.checked[key])
+                $scope.theChecked.push(angular.copy($scope.items[key]))
+                localStorageService.set("checkedData",$scope.theChecked);
+                console.log($scope.checked)
             }
         })
-
     })
 
     .controller('favoriteDetailCtrl', function ($scope, $stateParams,localStorageService, types, $http) {
