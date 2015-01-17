@@ -57,8 +57,10 @@ console.log("stateParams are");
                     localStorageService.set("checkedData", $scope.checked);
                     console.log("this is" + $scope.checked)
                 }
-                console.log($scope.checked);
-                console.log(localStorageService.get("checkedData"))
+                var newChecked = angular.copy($scope.checked);
+                $scope.checked = newChecked;
+console.log($scope.checked)
+                console.log(newChecked)
 
             }
         };
@@ -70,10 +72,15 @@ console.log("stateParams are");
         $scope.items = types.allItems();
         $scope.coupon = types.fetch($stateParams.couponId);
         $scope.checked = types.favoriteList();
+        $scope.theChecked = [];
         $scope.favorites = "button icon-left ion-plus button-positive";
         $scope.favoritesText = "点击领取";
+        var flag;
         if (localStorageService.get("checkedData")) {
+
+
             $scope.checked = localStorageService.get("checkedData")
+
         }
         console.log($scope.checked)
         console.log(localStorageService.get("checkedData"));
@@ -81,7 +88,13 @@ console.log("stateParams are");
         console.log($scope.checked)
         console.log(localStorageService.set("checkedData",$scope.checked));
 
-
+        angular.forEach( $scope.checked,function(value,key) {
+            console.log(key)
+            console.log($scope.items[key])
+            if($scope.items[value.id]){
+                $scope.theChecked.push($scope.checked[key])
+            }
+        })
 
     })
 

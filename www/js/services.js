@@ -4,7 +4,7 @@
  * A simple example service that returns some data.
  */
     .factory('types', function ($rootScope,$http,localStorageService) {
-        var types,items,checked = [],i
+        var types,items,checked = [], i,theChecked = []
 
         $http.get("http://hahadz.com:3000/api/types").success(function (data) {
             console.log(data)
